@@ -1,0 +1,8 @@
+# configuration file for building snapshots and releases with jitpack.io
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=sarw-firebase-authentication-release.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.HashamSarwar -DartifactId=sarw-firebase-authentication -Dversion=1.0 -Dpackaging=aar -DgeneratePom=true
